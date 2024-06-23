@@ -1,0 +1,327 @@
+/* Reset styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #cccaca;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    position: fixed;
+    height: 100%;
+    padding-top: 20px;
+    padding-left: 20px;
+    transition: width 0.3s ease;
+    z-index: 1; /* Ensure sidebar is above other content */
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li:hover {
+    background: #34495e;
+}
+
+.sidebar ul li i {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.main-content {
+    margin-left: 250px; /* Adjusted to match sidebar width */
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar {
+    background: rgba(253, 253, 253, 0.9); 
+    padding: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between; /* Align items horizontally */
+    align-items: center; /* Align items vertically */
+    border-radius: 10px;
+    transform: translateY(0px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 2; /* Ensure above other elements */
+}
+
+/*.topbar:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}*/
+
+.topbar h1 {
+    margin: 0;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.search-bar {
+    position: relative;
+    width: 500px;
+    height: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #e0dede;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 400px; 
+}
+
+.search-bar input[type="text"] {
+    width: calc(100% - 40px);
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    background: transparent;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar input[type="text"]:focus {
+    background-color: #e9e9e9;
+}
+
+.search-bar button {
+    width: 40px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: #ddd;
+    color: #333;
+    cursor: pointer;
+    border-radius: 0 20px 20px 0;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background: #ccc;
+}
+
+.container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Adjusted to fit 3 cards per row */
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* Centering content */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card.large {
+    grid-column: span 1;
+}
+
+.card.full-width {
+    grid-column: span 1;
+}
+
+.alert-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dc3545;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2; /* Ensure above other elements */
+}
+
+.alert-icon i {
+    margin: 0;
+}
+
+.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.alert.warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.map-container {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: auto; /* Push to the right */
+    padding: 10px;
+}
+
+.profile-icon img {
+    width: 50px; /* Increased size */
+    height: 50px; /* Increased size */
+    border-radius: 50%; /* Ensure circular shape */
+    margin-right: 20px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 50px;
+    right: 0;
+    min-width: 160px;
+    overflow: auto;
+    border: 1px solid #ddd;
+}
+
+.dropdown-content p {
+    margin: 10px;
+}
+
+.dropdown-content hr {
+    margin: 5px 0;
+    border-top: 1px solid #ddd;
+}
+
+.dropdown-item {
+    text-align: center;
+}
+
+.settings-btn,
+.logout-btn {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Show dropdown when hovering over profile icon */
+.profile-icon:hover .dropdown-content {
+    display: block;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.settings-icon,
+.notification-icon {
+    font-size: 24px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.settings-icon:hover,
+.notification-icon:hover {
+    transform: translateY(-5px);
+    color: #ff6347; /* Example hover color */
+}
+
+/* Example 3D effect */
+.settings-icon {
+    color: #1e90ff; /* Original color */
+    margin-left: 100px;
+    text-shadow: 1px 1px 2px #000000, 0 0 25px #1e90ff, 0 0 5px #000000;
+}
+
+.notification-icon {
+    color: #ff4500; /* Original color */
+    margin-left: 20px;
+    text-shadow: 1px 1px 2px #000000, 0 0 25px #ff4500, 0 0 5px #000000;
+}

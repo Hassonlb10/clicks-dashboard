@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBAG Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+            <li>Alerts</li>
+            <li>Active Deliveries</li>
+            <li>Pending Deliveries</li>
+            <li>Past Deliveries</li>
+            <li>Manage Deliveries</li>
+            <li>SBAG Inventory</li>
+            <li>Driver Roster</li>
+            <li>System Status</li>
+            <li>Logout</li>
+        </ul>
+    </div>
+    
+    <div class="main-content">
+        <div class="topbar">
+            <h1>Clicks Dashboard</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="icons">
+                <i class="fas fa-cog settings-icon"></i>
+                <i class="fas fa-bell notification-icon"></i>
+                <div class="profile-icon" onclick="toggleDropdown()">
+                    <img src="images/profile_pic.jpg" alt="Profile Picture">
+                    <div class="dropdown-content" id="dropdownContent">
+                        <div class="user-info">
+                            <p>Ahmad_789</p>
+                        </div>
+                        <hr>
+                        <div class="dropdown-item">
+                            <button class="settings-btn">Settings</button>
+                        </div>
+                        <div class="dropdown-item">
+                            <button class="logout-btn" onclick="logout()">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="dashboard">
+                <div class="card large">
+                    <h3><i class="fas fa-bell fa-2x"></i> Alerts</h3>
+                    <div class="alert-icon" id="alertIconContainer">
+                        <span id="alertCount">0</span>
+                    </div>
+                    <div id="alertsContainer">
+                        <!-- Alerts will be dynamically added here -->
+                    </div>
+                </div>
+                <div class="card large">
+                    <h3><i class="fas fa-truck fa-2x"></i> Active Deliveries</h3>
+                    <canvas id="activeDeliveriesPieChart"></canvas>
+                </div>
+                <div class="card large">
+                    <h3><i class="fas fa-clock fa-2x"></i> Pending Deliveries</h3>
+                    <ul id="pendingDeliveriesList">
+                        <li>Loading...</li>
+                    </ul>
+                </div>
+                <div class="card large">
+                    <h3><i class="fas fa-history fa-2x"></i> Past Deliveries</h3>
+                    <canvas id="pastDeliveriesBarChart"></canvas>
+                </div>
+                <div class="card large">
+                    <h3><i class="fas fa-tasks fa-2x"></i> Manage Deliveries</h3>
+                    <form id="manageDeliveryForm">
+                        <label for="orderId">Order ID:</label>
+                        <input type="text" id="orderId" name="orderId">
+                        <button type="submit">Assign Driver</button>
+                    </form>
+                </div>
+                <div class="card large">
+                    <h3><i class="fas fa-boxes fa-2x"></i> SBAG Inventory</h3>
+                    <ul id="sbagInventoryList">
+                        <li>Loading...</li>
+                    </ul>
+                </div>
+                <div class="card large">
+                    <h3><i class="fas fa-users fa-2x"></i> Driver Roster</h3>
+                    <ul id="driverRosterList">
+                        <li>Loading...</li>
+                    </ul>
+                </div>
+                <div class="card large">
+                    <h3><i class="fas fa-server fa-2x"></i> System Status</h3>
+                    <p>System is operational.</p>
+                </div>
+                <div class="card full-width">
+                    <h3><i class="fas fa-map-marked-alt fa-2x"></i> Map of Qatar</h3>
+                    <div id="map" class="map-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
