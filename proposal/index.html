@@ -11,30 +11,47 @@
 </head>
 <body>
     <div class="sidebar">
-        <h2>Dashboard</h2>
-        <ul>
-            <li>Alerts</li>
-            <li>Active Deliveries</li>
-            <li>Pending Deliveries</li>
-            <li>Past Deliveries</li>
-            <li>Manage Deliveries</li>
-            <li>SBAG Inventory</li>
-            <li>Driver Roster</li>
-            <li>System Status</li>
-            <li>Logout</li>
+        <div class="sb_img"><img src="images/logo.jpg" alt="Dashboard Image" class="sidebar-image"></div>
+        <ul class="dashboard-buttons">
+            <li class="active" onclick="navigateTo('dashboard')">
+                <i class="fas fa-tachometer-alt fa-2x"></i>
+                <span style="font-size: 20px;">Dashboard</span>
+            </li>            
+            <li onclick="navigateTo('alerts')">
+                <i class="fas fa-bell"></i>
+                <span>Alerts</span>
+            </li>
+            <li onclick="navigateTo('deliveries')">
+                <i class="fas fa-truck"></i>
+                <span>Deliveries</span>
+            </li>
+            <li onclick="navigateTo('sbag-inventory')">
+                <i class="fas fa-boxes"></i>
+                <span>SBAG Inventory</span>
+            </li>
+            <li onclick="navigateTo('driver-roster')">
+                <i class="fas fa-users"></i>
+                <span>Driver Roster</span>
+            </li>
+            <li onclick="navigateTo('system-status')">
+                <i class="fas fa-server"></i>
+                <span>System Status</span>
+            </li>
         </ul>
     </div>
     
     <div class="main-content">
         <div class="topbar">
-            <h1>Clicks Dashboard</h1>
+            <h2>Hi Ahmed,
+                Welcome to Clicks Dashboard
+            </h2>
             <div class="search-bar">
                 <input type="text" placeholder="Search...">
                 <button><i class="fas fa-search"></i></button>
             </div>
             <div class="icons">
                 <i class="fas fa-cog settings-icon"></i>
-                <i class="fas fa-bell notification-icon"></i>
+                <i class="fas fa-bell notification-icon"></i></div>
                 <div class="profile-icon" onclick="toggleDropdown()">
                     <img src="images/profile_pic.jpg" alt="Profile Picture">
                     <div class="dropdown-content" id="dropdownContent">
@@ -50,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            
         </div>
         
         <div class="container">
