@@ -22,10 +22,11 @@ body {
 }
 
 .topbar {
-    background: #8be091; 
-    padding: 5px;
+    background: #04c4c0; 
+    padding-left: 5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    margin-top: -15px;
     text-align: center;
     display: flex;
     justify-content: space-between; /* Align items horizontally */
@@ -291,8 +292,8 @@ body {
 /* Sidebar */
 .sidebar {
     width: 220px;
-    background: #8be091; /* Light green background */
-    color: rgb(34, 33, 33);
+    background: #039b98; /* Light green background */
+    color: rgb(29, 28, 28);
     font-weight: bold;
     position: fixed;
     height: 100%;
@@ -301,11 +302,8 @@ body {
     box-shadow: 0 4px 10px rgba(27, 27, 27, 0.2);
 }
 .sidebar-image {
-    border-radius: 10px;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin-left: 50px;
     position: relative;
-    box-shadow: 0 4px 10px rgba(27, 27, 27, 0.2);
 }
 
 .sidebar h2 {
@@ -317,7 +315,7 @@ body {
 .sidebar ul {
     list-style-type: none;
     padding: 0;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 .sidebar ul li {
@@ -331,7 +329,7 @@ body {
 
 .sidebar ul li:hover {
     background: #f7f8f7; /* Darker green on hover */
-    color: #518d55;
+    color: #039b98;
     border-radius: 30px;
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(27, 27, 27, 0.2);
@@ -344,7 +342,7 @@ body {
 
 .sidebar ul li.active {
     background: #f7f8f7; /* Darker green on hover */
-    color: #518d55;
+    color: #039b98;
     border-radius: 30px;
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(27, 27, 27, 0.2);
