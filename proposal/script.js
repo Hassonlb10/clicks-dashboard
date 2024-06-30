@@ -139,7 +139,6 @@ function updateDashboardData() {
 }
 
 // Function to initialize the map and add markers
-// Function to initialize the map and add markers
 function initializeMap() {
     var map = L.map('map').setView([25.276987, 51.520008], 12);
 
@@ -148,11 +147,23 @@ function initializeMap() {
         maxZoom: 18
     }).addTo(map);
 
-    // Example delivery markers (replace with dynamic data)
+    // Example delivery markers (replace with dynamic data if available)
     var deliveryMarkers = [
-        { coords: [25.276987, 51.520008], driverId: 'Driver 1' },
-        { coords: [25.280282, 51.517408], driverId: 'Driver 2' },
-        { coords: [25.270045, 51.515467], driverId: 'Driver 3' }
+        { coords: [25.276987, 51.520008], driverId: 'Driver_ABC123' },
+    { coords: [25.280282, 51.517408], driverId: 'Driver_DEF456' },
+    { coords: [25.270045, 51.515467], driverId: 'Driver_GHI789' },
+    { coords: [25.285432, 51.522345], driverId: 'Driver_JKL012' },
+    { coords: [25.263421, 51.531234], driverId: 'Driver_MNO345' },
+    { coords: [25.279876, 51.513567], driverId: 'Driver_PQR678' },
+    { coords: [25.290123, 51.514789], driverId: 'Driver_STU901' },
+    { coords: [25.272345, 51.529012], driverId: 'Driver_VWX234' },
+    { coords: [25.281234, 51.526789], driverId: 'Driver_YZAB56' },
+    { coords: [25.277890, 51.510123], driverId: 'Driver_CDE789' },
+    { coords: [25.284567, 51.521345], driverId: 'Driver_FGH012' },
+    { coords: [25.271234, 51.517890], driverId: 'Driver_IJK345' },
+    { coords: [25.278901, 51.524567], driverId: 'Driver_MNO678' },
+    { coords: [25.275678, 51.515678], driverId: 'Driver_PQR901' },
+    { coords: [25.283456, 51.512345], driverId: 'Driver_STU234' }
     ];
 
     deliveryMarkers.forEach(function(marker) {
@@ -161,21 +172,12 @@ function initializeMap() {
             .openPopup();
     });
 
+    // Optionally, you can update the map size to ensure it displays correctly
+    map.invalidateSize();
 }
-document.addEventListener("DOMContentLoaded", function() {
-    function updateStatusMeter(value) {
-        const meter = document.getElementById("status-meter");
-        const percentage = value / 100;
-        const circumference = 2 * Math.PI * 40;
-        const offset = circumference * percentage;
-        meter.style.strokeDasharray = `${offset}, ${circumference}`;
-        
-        const statusValue = document.querySelector(".system-status-value");
-        statusValue.textContent = `${value}%`;
-    }
-
-    // Example usage:
-    updateStatusMeter(75); // Change this value to update the meter
+// Call initializeMap function when DOM content is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializeMap();
 });
 
 // Function to initialize the advanced line chart with default data (weeks)
@@ -255,9 +257,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initial call to populate dashboard data and initialize map
 updateDashboardData();
-
-// Call initializeMap function when DOM content is loaded
-document.addEventListener("DOMContentLoaded", function() {
-    initializeMap();
-});
-
