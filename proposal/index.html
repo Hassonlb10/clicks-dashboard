@@ -73,54 +73,150 @@
         <div class="container">
             <div class="dashboard">
                 <div class="card large">
-                    <h3><i class="fas fa-bell fa-2x"></i> Alerts</h3>
-                    <div class="alert-icon" id="alertIconContainer">
-                        <span id="alertCount">0</span>
-                    </div>
-                    <div id="alertsContainer">
-                        <!-- Alerts will be dynamically added here -->
+                    <h3><img src="images/deliverybike.png" alt="Deliveries Icon" class="delivery-icon"> Deliveries</h3>
+                    <div class="delivery-status">
+                        <div class="status-cards-container">
+                            <div class="status-card">
+                                <img src="images/totalorders.png" alt="Total Orders Icon" class="status-icon">
+                                <div class="status-info">
+                                    <div class="status-number">153</div>
+                                    <h4>Total Orders</h4>
+                                </div>
+                            </div>
+                            <div class="status-card">
+                                <img src="images/pending.png" alt="Pending Orders Icon" class="status-icon">
+                                <div class="status-info">
+                                    <div class="status-number">7</div>
+                                    <h4>Pending Orders</h4>
+                                </div>
+                            </div>
+                            <div class="status-card">
+                                <img src="images/in-transit.png" alt="In-Transit Orders Icon" class="status-icon">
+                                <div class="status-info">
+                                    <div class="status-number">15</div>
+                                    <h4>Orders In-Transit</h4>
+                                </div>
+                            </div>
+                            <div class="status-card">
+                                <img src="images/complete.png" alt="Completed Orders Icon" class="status-icon">
+                                <div class="status-info">
+                                    <div class="status-number">128</div>
+                                    <h4>Completed Orders</h4>
+                                </div>
+                            </div>
+                            <div class="status-card">
+                                <img src="images/cancel.png" alt="Cancelled Orders Icon" class="status-icon">
+                                <div class="status-info">
+                                    <div class="status-number">3</div>
+                                    <h4>Cancelled Orders</h4>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="card large">
-                    <h3><i class="fas fa-truck fa-2x"></i> Active Deliveries</h3>
-                    <canvas id="activeDeliveriesPieChart"></canvas>
+                    <h3><img src="images/sbag.png" alt="SBAGs Icon" class="delivery-icon"> SBAGs</h3>
+                    <div class="delivery-status">
+                        <div class="status-cards-container">
+                            <div class="status-card">
+                                <img src="images/available.png" alt="Available SBAGs Icon" class="status-icon">
+                                <div class="status-info">
+                                    <div class="status-number">50</div>
+                                    <h4>Available</h4>
+                                </div>
+                            </div>
+                            <div class="status-card">
+                                <img src="images/notavailable.png" alt="In-Use SBAGs Icon" class="status-icon">
+                                <div class="status-info">
+                                    <div class="status-number">25</div>
+                                    <h4>In-Use</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="card large">
-                    <h3><i class="fas fa-clock fa-2x"></i> Pending Deliveries</h3>
-                    <ul id="pendingDeliveriesList">
-                        <li>Loading...</li>
-                    </ul>
+                    <h3><img src="images/alerts.png" alt="Alerts Icon" class="delivery-icon"> Alerts</h3>
+                    <div class="alerts-list">
+                        <div class="alert-item">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div class="alert-details">
+                                <p style="font-weight: bolder;">SBAG ID: 54874</p>
+                                <p>Increase in Humidity level</p>
+                            </div>
+                        </div>
+                        <div class="alert-item">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div class="alert-details">
+                                <p style="font-weight: bolder;">SBAG ID: 743256</p>
+                                <p>SBAG Unsealed before reaching its destination</p>
+                            </div>
+                        </div>
+                        <div class="alert-item">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div class="alert-details">
+                                <p style="font-weight: bolder;">SBAG ID: 64789</p>
+                                <p>Temperature decreased</p>
+                            </div>
+                        </div>
+                        <div class="alert-item">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div class="alert-details">
+                                <p style="font-weight: bolder;">SBAG ID: 74325</p>
+                                <p>Mishandled Numerous times</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card large">
+                    <h3><img src="images/courier.png" alt="Drivers Icon" class="delivery-icon"> Drivers</h3>
+                    <div class="delivery-status">
+                        <div class="status-cards-container">
+                            <div class="status-card">
+                                <img src="images/available.png" alt="Available SBAGs Icon" class="status-icon">
+                                <div class="status-info">
+                                    <div class="status-number">50</div>
+                                    <h4>Available</h4>
+                                </div>
+                            </div>
+                            <div class="status-card">
+                                <img src="images/notavailable.png" alt="In-Use SBAGs Icon" class="status-icon">
+                                <div class="status-info">
+                                    <div class="status-number">25</div>
+                                    <h4>Unavailable</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card large">
                     <h3><i class="fas fa-history fa-2x"></i> Past Deliveries</h3>
-                    <canvas id="pastDeliveriesBarChart"></canvas>
-                </div>
-                <div class="card large">
-                    <h3><i class="fas fa-tasks fa-2x"></i> Manage Deliveries</h3>
-                    <form id="manageDeliveryForm">
-                        <label for="orderId">Order ID:</label>
-                        <input type="text" id="orderId" name="orderId">
-                        <button type="submit">Assign Driver</button>
-                    </form>
-                </div>
-                <div class="card large">
-                    <h3><i class="fas fa-boxes fa-2x"></i> SBAG Inventory</h3>
-                    <ul id="sbagInventoryList">
-                        <li>Loading...</li>
-                    </ul>
-                </div>
-                <div class="card large">
-                    <h3><i class="fas fa-users fa-2x"></i> Driver Roster</h3>
-                    <ul id="driverRosterList">
-                        <li>Loading...</li>
-                    </ul>
-                </div>
-                <div class="card large">
-                    <h3><i class="fas fa-server fa-2x"></i> System Status</h3>
-                    <p>System is operational.</p>
+                    <div class="filter-button">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <div class="filter-menu">
+                        <ul>
+                            <li><a href="#" onclick="changeGraph('weeks')">Weeks</a></li>
+                            <li><a href="#" onclick="changeGraph('months')">Months</a></li>
+                        </ul>
+                    </div>
+                    <div class="line-chart-container">
+                        <canvas id="deliveryLineChart"></canvas>
+                    </div>
                 </div>
                 <div class="card full-width">
-                    <h3><i class="fas fa-map-marked-alt fa-2x"></i> Map of Qatar</h3>
+                    <h3><i class="fas fa-map-marked-alt fa-2x"></i> Location</h3>
                     <div id="map" class="map-container"></div>
                 </div>
             </div>

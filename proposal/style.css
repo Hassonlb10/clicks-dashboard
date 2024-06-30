@@ -101,8 +101,13 @@ body {
 .dashboard {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Adjusted to fit 3 cards per row */
-    gap: 30px;
+    gap: 20px;
     flex-grow: 1;
+    grid-template-areas:
+    "header header header"
+    "Deliveries Deliveries Deliveries"
+    "second-row1 third-row second-row2" /* Define grid areas for rows */
+    "third-row1 third-row third-row2";
 }
 
 .card {
@@ -132,7 +137,7 @@ body {
 }
 
 .card.full-width {
-    grid-column: span 1;
+    grid-column: span 3;
 }
 
 .alert-icon {
@@ -384,3 +389,220 @@ body {
         margin-left: 0;
     }
 }
+
+.delivery-status {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.status-cards-container {
+    display: flex;
+    gap: 30px;
+}
+
+.status-card {
+    background-color: #f3f2f2;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Changed to left for horizontal layout */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Changed to flex for horizontal layout */
+    align-items: center; /* Align items vertically center */
+    gap: 15px;
+    width: 290px;
+    height: 100px;
+}
+
+.status-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.status-card img.status-icon {
+    width: 70px; /* Adjust the size as needed */
+    height: 70px; /* Adjust the size as needed */
+}
+
+.status-card h4 {
+    margin: 0;
+    font-size: 21px; /* Adjust font size */
+    font-weight: lighter;
+    font-family: 'Times New Roman', Times, serif;
+    flex-grow: 1; /* Allows the heading to take available space */
+}
+
+.status-number {
+    font-size: 60px; /* Adjust font size */
+    font-weight: bold;
+    color: #3d3c3c;
+}
+
+
+/* Adjusting card positions for specific rows and columns */
+.card:nth-child(1) {
+    grid-column: span 3; /* Deliveries card spans 2 columns */
+}
+
+.card:nth-child(2) {
+    grid-column: span 1; /* SBAGs card spans 1 column */
+    height: 200px;
+    grid-area: second-row1;
+}
+
+.card:nth-child(3) {
+    grid-column: span 1; /* Alerts card spans 1 column */
+    height: 500px;
+    grid-area: third-row;
+}
+
+.card:nth-child(4) {
+    grid-column: span 1; /* Drivers card spans 1 column */
+    height: 200px;
+    grid-area: second-row2;
+}
+
+.card:nth-child(5) {
+    grid-column: span 1; /* Past Deliveries card spans 1 column */
+    grid-area: third-row1;
+    height: 500px;
+}
+
+.card.full-width {
+    grid-column: span 1; /* Map card spans all three columns */
+    grid-area: third-row2;
+    height: 500px;
+}
+.system-status-meter {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.indication-meter {
+    width: 100%;
+    height: 100%;
+}
+
+#status-meter {
+    stroke-dasharray: 0, 251.2;
+    transition: stroke-dasharray 1s ease-out;
+}
+
+#needle {
+    transform-origin: 50% 50%;
+    transition: transform 1s ease-out;
+}
+
+.system-status-value {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+}
+.delivery-icon {
+    width: 60px; /* Adjust the width as needed */
+    height: 60px; /* Adjust the height as needed */
+    margin-right: 10px;
+    vertical-align: middle; /* Aligns the icon with the text */
+}
+.card-icon {
+    width: 80px; /* Adjust as needed */
+    height: 80px; /* Adjust as needed */
+    margin-right: 10px;
+    vertical-align: middle; /* Aligns the image with the text */
+}
+
+/* Alert container */
+.alerts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Alert item */
+.alert-item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alert-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: #bd1c2c;
+    color: white;
+}
+
+/* Alert icon */
+.alert-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    background-color: #dc3545; /* Red background */
+    color: #fff;
+}
+
+/* Alert details */
+.alert-details {
+    flex: 1;
+}
+
+.alert-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.alert-description {
+    font-size: 16px;
+    color: #000000;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.5;
+}
+
+/* Example animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Apply animation to alert icon */
+.alert-icon.animated {
+    animation: pulse 2s infinite;
+}
+
+/* Add specific styles for the line chart */
+.line-chart-container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    margin-top: 20px;
+}
+
+/* Example hover effect for filter button */
+.filter-button:hover .filter-menu {
+    display: block;
+}
+
