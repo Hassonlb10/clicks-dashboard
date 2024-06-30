@@ -55,7 +55,7 @@ body {
     height: 40px;
     border-radius: 20px;
     overflow: hidden;
-    background: #e0dede;
+    background: #f6f5f5;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-left: 400px; 
 }
@@ -471,7 +471,7 @@ body {
 .card.full-width {
     grid-column: span 1; /* Map card spans all three columns */
     grid-area: third-row2;
-    height: 400px;
+    height: 450px;
 }
 .system-status-meter {
     position: relative;
