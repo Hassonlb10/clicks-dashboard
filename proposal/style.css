@@ -112,7 +112,7 @@ body {
 
 .card {
     background: white;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     display: flex;
@@ -464,7 +464,7 @@ body {
 .card:nth-child(5) {
     grid-column: span 1; /* Past Deliveries card spans 1 column */
     grid-area: third-row1;
-    height: 500px;
+    height: 450px;
     width: 100%;
 }
 
@@ -607,3 +607,44 @@ body {
     display: block;
 }
 
+.filter-button {
+    position: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.filter-icon {
+    margin-right: 10px;
+}
+
+.filter-menu {
+    position: relative;
+    top: 40px;
+    right: 0;
+    z-index: 100;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: none;
+}
+
+.filter-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.filter-menu ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-menu ul li:hover {
+    background-color: #f0f4f8;
+}
+
+.filter-menu.show {
+    display: block;
+}

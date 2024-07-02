@@ -38,40 +38,7 @@ document.querySelector('.search-bar input').addEventListener('keypress', functio
 // Function to update dynamic data (simulated)
 function updateDashboardData() {
     // Update Active Deliveries Pie Chart
-    var activeDeliveriesPieChart = document.getElementById('activeDeliveriesPieChart').getContext('2d');
-    var activeDeliveriesData = {
-        labels: ['In Transit', 'Assigned', 'Completed'],
-        datasets: [{
-            label: 'Active Deliveries',
-            data: [25, 10, 15], // Example data (replace with actual dynamic data)
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.5)',
-                'rgba(54, 162, 235, 0.5)',
-                'rgba(255, 206, 86, 0.5)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
-            ],
-            borderWidth: 1
-        }]
-    };
-    var activeDeliveriesPieChartInstance = new Chart(activeDeliveriesPieChart, {
-        type: 'pie',
-        data: activeDeliveriesData,
-        options: {
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            return context.label + ': ' + context.raw.toFixed(2) + '%';
-                        }
-                    }
-                }
-            }
-        }
-    });
+  
 
     // Update Past Deliveries Bar Chart
     var pastDeliveriesBarChart = document.getElementById('pastDeliveriesBarChart').getContext('2d');
@@ -85,17 +52,6 @@ function updateDashboardData() {
             borderWidth: 1
         }]
     };
-    var pastDeliveriesBarChartInstance = new Chart(pastDeliveriesBarChart, {
-        type: 'bar',
-        data: pastDeliveriesData,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
 
     // Update Pending Deliveries
     var pendingDeliveriesList = document.getElementById('pendingDeliveriesList');
@@ -139,6 +95,7 @@ function updateDashboardData() {
 }
 
 // Function to initialize the map and add markers
+// Function to initialize the map and add markers
 function initializeMap() {
     var map = L.map('map').setView([25.276987, 51.520008], 12);
 
@@ -149,25 +106,25 @@ function initializeMap() {
 
     // Example delivery markers (replace with dynamic data if available)
     var deliveryMarkers = [
-        { coords: [25.276987, 51.520008], driverId: 'Driver_ABC123' },
-    { coords: [25.280282, 51.517408], driverId: 'Driver_DEF456' },
-    { coords: [25.270045, 51.515467], driverId: 'Driver_GHI789' },
-    { coords: [25.285432, 51.522345], driverId: 'Driver_JKL012' },
-    { coords: [25.263421, 51.531234], driverId: 'Driver_MNO345' },
-    { coords: [25.279876, 51.513567], driverId: 'Driver_PQR678' },
-    { coords: [25.290123, 51.514789], driverId: 'Driver_STU901' },
-    { coords: [25.272345, 51.529012], driverId: 'Driver_VWX234' },
-    { coords: [25.281234, 51.526789], driverId: 'Driver_YZAB56' },
-    { coords: [25.277890, 51.510123], driverId: 'Driver_CDE789' },
-    { coords: [25.284567, 51.521345], driverId: 'Driver_FGH012' },
-    { coords: [25.271234, 51.517890], driverId: 'Driver_IJK345' },
-    { coords: [25.278901, 51.524567], driverId: 'Driver_MNO678' },
-    { coords: [25.275678, 51.515678], driverId: 'Driver_PQR901' },
-    { coords: [25.283456, 51.512345], driverId: 'Driver_STU234' }
+        { coords: [25.276987, 51.520008], driverId: 'Driver_ABC123', color: 'blue' },
+        { coords: [25.280282, 51.517408], driverId: 'Driver_DEF456', color: 'red' },
+        { coords: [25.270045, 51.515467], driverId: 'Driver_GHI789', color: 'blue' },
+        { coords: [25.285432, 51.522345], driverId: 'Driver_JKL012', color: 'red' },
+        { coords: [25.263421, 51.531234], driverId: 'Driver_MNO345', color: 'blue' },
+        { coords: [25.279876, 51.513567], driverId: 'Driver_PQR678', color: 'blue' },
+        { coords: [25.290123, 51.514789], driverId: 'Driver_STU901', color: 'blue' },
+        { coords: [25.272345, 51.529012], driverId: 'Driver_VWX234', color: 'blue' },
+        { coords: [25.281234, 51.526789], driverId: 'Driver_YZAB56', color: 'blue' },
+        { coords: [25.277890, 51.510123], driverId: 'Driver_CDE789', color: 'blue' },
+        { coords: [25.284567, 51.521345], driverId: 'Driver_FGH012', color: 'blue' },
+        { coords: [25.271234, 51.517890], driverId: 'Driver_IJK345', color: 'blue' },
+        { coords: [25.278901, 51.524567], driverId: 'Driver_MNO678', color: 'blue' },
+        { coords: [25.275678, 51.515678], driverId: 'Driver_PQR901', color: 'blue' },
+        { coords: [25.283456, 51.512345], driverId: 'Driver_STU234', color: 'blue' }
     ];
 
     deliveryMarkers.forEach(function(marker) {
-        L.marker(marker.coords).addTo(map)
+        L.marker(marker.coords, { icon: createMarkerIcon(marker.color) }).addTo(map)
             .bindPopup('Active Delivery Vehicle<br>' + marker.driverId)
             .openPopup();
     });
@@ -175,10 +132,24 @@ function initializeMap() {
     // Optionally, you can update the map size to ensure it displays correctly
     map.invalidateSize();
 }
+
+// Function to create a custom marker icon
+function createMarkerIcon(color) {
+    return L.icon({
+        iconUrl: `https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-${color}.png`,
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        tooltipAnchor: [16, -28],
+        shadowSize: [41, 41]
+    });
+}
+
 // Call initializeMap function when DOM content is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeMap();
 });
+
 
 // Function to initialize the advanced line chart with default data (weeks)
 function initAdvancedLineChart() {
@@ -190,47 +161,55 @@ function initAdvancedLineChart() {
             datasets: [{
                 label: 'Deliveries',
                 data: [12, 19, 3, 5, 2, 3, 9],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 2,
-                pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                borderColor: '#4F46E5', // Digital blue color for the line
+                backgroundColor: 'rgba(79, 70, 229, 0.2)', // Light shade color filling
+                borderWidth: 3,
+                pointBackgroundColor: '#4F46E5', // Digital blue points
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(54, 162, 235, 1)',
-                pointRadius: 5,
-                pointHoverRadius: 7,
+                pointHoverBorderColor: '#4F46E5', // Digital blue on hover
+                pointRadius: 6,
+                pointHoverRadius: 8,
             }]
         },
         options: {
             scales: {
                 y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function(value) {
-                            return value.toFixed(0); // format y-axis labels
-                        }
-                    }
+                    display: false, // Hide y-axis completely
                 },
                 x: {
-                    grid: {
-                        display: false // remove x-axis grid lines
-                    }
+                    display: false, // Hide x-axis completely
                 }
             },
             plugins: {
+                legend: {
+                    display: false, // Hide legend
+                },
                 tooltip: {
-                    callbacks: {
-                        label: function(tooltipItem) {
-                            return tooltipItem.raw.toFixed(0); // format tooltip labels
-                        }
-                    }
+                    enabled: false, // Disable tooltips
                 }
-            }
+            },
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0 // Remove padding around the chart
+                }
+            },
+            elements: {
+                line: {
+                    tension: 0.4 // Adjust line tension for a more digital look
+                }
+            },
+            responsive: true, // Make the chart responsive
+            maintainAspectRatio: false // Allow the chart to scale to parent container
         }
     });
 
     return deliveryLineChart;
 }
+
 
 // Function to change graph data based on selection (weeks or months)
 function changeGraph(selection) {
@@ -257,3 +236,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initial call to populate dashboard data and initialize map
 updateDashboardData();
+

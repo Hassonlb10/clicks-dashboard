@@ -42,8 +42,8 @@
     
     <div class="main-content">
         <div class="topbar">
-            <h2>Hi Hassan,
-                Welcome to Clicks Dashboard
+            <h2 style="font-family: 'Times New Roman', Times, serif;">Hi Hassan,
+                Welcome to Clicks Dashboard...
             </h2>
             <div class="search-bar">
                 <input type="text" placeholder="Search...">
@@ -74,7 +74,7 @@
         <div class="container">
             <div class="dashboard">
                 <div class="card large">
-                    <h3><img src="images/deliverybike.png" alt="Deliveries Icon" class="delivery-icon"> Deliveries</h3>
+                    <h3><img src="images/deliverybike.png" alt="Deliveries Icon" class="delivery-icon">Daily Deliveries</h3>
                     <div class="delivery-status">
                         <div class="status-cards-container">
                             <div class="status-card">
@@ -202,15 +202,22 @@
                     </div>
                 </div>
                 <div class="card large">
-                    <h3><img src="images/clock.png" alt="Drivers Icon" class="delivery-icon">Past Deliveries</h3>
+                    <h3><img src="images/clock.png" alt="Drivers Icon" class="delivery-icon"> Past Deliveries</h3>
                     <div class="filter-button">
                         <i class="fas fa-filter"></i>
                     </div>
-                    <div class="filter-menu">
-                        <ul>
-                            <li><a href="#" onclick="changeGraph('weeks')">Weeks</a></li>
-                            <li><a href="#" onclick="changeGraph('months')">Months</a></li>
-                        </ul>
+                    <div class="filter-button">
+                        <div class="filter-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8l5 5 5-5M7 16l5-5 5 5" />
+                            </svg>
+                        </div>
+                        <div class="filter-menu">
+                            <ul>
+                                <li><a href="#" onclick="changeGraph('weeks')">Weeks</a></li>
+                                <li><a href="#" onclick="changeGraph('months')">Months</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="line-chart-container">
                         <canvas id="deliveryLineChart"></canvas>
@@ -220,9 +227,7 @@
                     <h3><img src="images/map.png" alt="Drivers Icon" class="delivery-icon"></h3>
                     <div id="map" class="map-container"></div>
                 </div>
-            </div>
-        </div>
-    </div>
+                
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
